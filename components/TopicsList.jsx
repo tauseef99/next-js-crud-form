@@ -2,7 +2,7 @@ import React from "react";
 import { RemoveBtn } from "./RemoveBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
-
+// edited second time
 const getTopics = async () => {
   try {
     const res = await fetch("http://localhost:3000/api/topics", {
@@ -22,7 +22,10 @@ export const TopicsList = async () => {
   return (
     <>
       {topics.map((t) => (
-        <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start">
+        <div
+          key={t._id}
+          className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start"
+        >
           <div>
             <h2 className="font-bold text-2xl">{t.title} </h2>
             <div>{t.description}</div>
